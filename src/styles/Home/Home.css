@@ -1,0 +1,20 @@
+:root {
+  --primary-color: #51339c;
+  --secondary-color: #00fcde;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background-home {
+  margin: 0; /* Eliminar cualquier margen predeterminado del body */
+  height: 100vh; /* Asegurarse de que el body ocupe toda la altura de la pantalla */
+  background-image: linear-gradient(
+    to left,
+    var(--primary-color) 80%,
+    var(--secondary-color)
+  );
+}
