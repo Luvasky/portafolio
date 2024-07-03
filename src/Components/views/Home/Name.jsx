@@ -1,13 +1,17 @@
-import React from "react";
-import { Box, Typography, Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Typography, Button, Icon } from "@mui/material";
 import figureOne from "../../../assets/images/Group2.png";
 import { color, motion } from "framer-motion";
+import Send from "../../../assets/send.svg";
 
 const Name = () => {
+  const [move, setMove] = useState(false);
+
   const fontFamily = '"Poppins", sans-serif';
   const fontWeight = 800;
   const fontStyle = "normal";
   const mainColor = "#00fcde";
+  const secondColor = "#51339c";
 
   const messageOne = "I'm Luvasky";
   const messageTwo = "Software Developer";
@@ -108,14 +112,56 @@ const Name = () => {
         sx={{
           width: "100%",
           height: "20%",
-          backgroundColor: "orange",
+          // backgroundColor: "orange",
         }}
       >
-        <Button>
-          {messageTwo.split("").map((e) => (
-            <motion.span key={e}>{e}</motion.span>
-          ))}
-        </Button>
+        <motion.button
+          initial={{
+            x: 500,
+            opacity: 0,
+          }}
+          style={{
+            backgroundColor: mainColor,
+            outline: "none",
+            width: "180px",
+            height: "45px",
+            borderRadius: "50px",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: fontFamily,
+            fontWeight: "bold",
+            fontStyle: fontStyle,
+            fontSize: "20px",
+            color: secondColor,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+          onMouseEnter={() => setMove(true)}
+          onMouseLeave={() => setMove(false)}
+          animate={{
+            scale: move ? 1.1 : 1,
+            x: 0,
+            opacity: 1,
+          }}
+        >
+          <motion.div
+            style={{ width: "30%", display: "flex", justifyContent: "center" }}
+          >
+            <motion.img
+              src={Send}
+              style={{ width: "30px", height: "30px" }}
+              animate={{
+                rotate: move ? 40 : 10,
+              }}
+            ></motion.img>
+          </motion.div>
+          <motion.div
+            style={{ width: "70%", display: "flex", justifyContent: "center" }}
+          >
+            Get Start
+          </motion.div>
+        </motion.button>
       </Box>
     </Box>
   );
