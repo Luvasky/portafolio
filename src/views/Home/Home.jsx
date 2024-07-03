@@ -1,3 +1,4 @@
+import { Scale } from "@mui/icons-material";
 import "../../styles/Home/Home.css";
 import * as utils from "../../utils/Home/utils.js";
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
     image: {
       width: "70%",
       height: "99.3%",
+      cursor: "pointer",
     },
 
     menuContainer: {
@@ -43,6 +45,19 @@ const Home = () => {
       <utils.Box sx={{ ...styles.generalContainer }}>
         <utils.Box sx={{ ...styles.leftContainer }}>
           <utils.motion.img
+            initial={{
+              x: -1000,
+            }}
+            animate={{
+              x: 0,
+            }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+            }}
+            whileHover={{
+              x: 10,
+            }}
             src={utils.peopleOne}
             alt=""
             style={{ ...styles.image }}

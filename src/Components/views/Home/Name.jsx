@@ -9,12 +9,15 @@ const Name = () => {
   const fontStyle = "normal";
   const mainColor = "#00fcde";
 
+  const messageOne = "I'm Luvasky";
+  const messageTwo = "Software Developer";
   const styles = {
     generalContainer: {
       // backgroundColor: "pink",
       display: "flex",
       flexDirection: "column",
       height: "100%",
+      overFlow: "hidden",
     },
 
     massageOne: {
@@ -52,8 +55,55 @@ const Name = () => {
 
   return (
     <Box sx={{ ...styles.generalContainer }}>
-      <Typography sx={{ ...styles.massageOne }}>I'm Luvasky</Typography>
-      <Typography sx={{ ...styles.messageTwo }}>Software Developer</Typography>
+      <Box sx={{ ...styles.massageOne }}>
+        {messageOne.split("").map((char, index) => (
+          <motion.span
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            whileHover={{
+              y: -30,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: "easeInOut",
+            }}
+            key={index}
+            style={{
+              marginRight: char === " " ? "0.25em" : "0",
+            }}
+          >
+            {char}
+          </motion.span>
+        ))}
+      </Box>
+      <Typography sx={{ ...styles.messageTwo }}>
+        <motion.span
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{
+            duration: 0.5,
+            ease: "easeInOut",
+            delay: 0.5,
+            damping: 1,
+          }}
+        >
+          {messageTwo.split("").map((e) => (
+            <motion.span
+              key={e}
+              whileHover={{
+                WebkitTextStroke: "none",
+                color: mainColor,
+              }}
+            >
+              {e}
+            </motion.span>
+          ))}
+        </motion.span>
+      </Typography>
       <Box
         sx={{
           width: "100%",
@@ -61,7 +111,11 @@ const Name = () => {
           backgroundColor: "orange",
         }}
       >
-        <Button>Get start</Button>
+        <Button>
+          {messageTwo.split("").map((e) => (
+            <motion.span key={e}>{e}</motion.span>
+          ))}
+        </Button>
       </Box>
     </Box>
   );
