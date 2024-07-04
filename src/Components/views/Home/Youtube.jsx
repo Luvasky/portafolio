@@ -1,37 +1,64 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-const Youtube = (props) => (
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={30}
-    height={30}
-    fill="none"
-    viewBox="0 0 24 24"
-  >
-    <motion.path
-      fill="#ffff"
-      fillRule="evenodd"
-      d="M9.496 7.132A1 1 0 0 0 8 8v8a1 1 0 0 0 1.496.868l7-4a1 1 0 0 0 0-1.736l-7-4ZM13.984 12 10 14.277V9.723L13.984 12Z"
-      clipRule="evenodd"
-      initial={{ pathLength: 0 }}
-      animate={{ pathLength: 5 }}
+
+const fontFamily = '"Poppins", sans-serif';
+const fontWeight = 800;
+const fontStyle = "normal";
+const mainColor = "#00fcde";
+const secondColor = "#51339c";
+
+const Youtube = (props) => {
+  const [move, setMove] = useState(false);
+
+  return (
+    <motion.div
+      onMouseEnter={() => setMove(true)}
+      onMouseLeave={() => setMove(false)}
+      style={{
+        backgroundColor: secondColor,
+        width: "40px",
+        height: "40px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: "50px",
+        cursor: "pointer",
+      }}
+      whileHover={{
+        backgroundColor: "white",
+      }}
       transition={{
-        duration: 2, // Duración de la animación en segundos
         ease: "easeInOut",
       }}
-    />
-    <motion.path
-      fill="#ffff"
-      fillRule="evenodd"
-      d="M0 12c0-3.75 0-5.625.955-6.939A5 5 0 0 1 2.06 3.955C3.375 3 5.251 3 9 3h6c3.75 0 5.625 0 6.939.955a5 5 0 0 1 1.106 1.106C24 6.375 24 8.251 24 12c0 3.75 0 5.625-.955 6.939a5 5 0 0 1-1.106 1.106C20.625 21 18.749 21 15 21H9c-3.75 0-5.625 0-6.939-.955A5 5 0 0 1 .955 18.94C0 17.625 0 15.749 0 12Zm9-7h6c1.92 0 3.198.003 4.167.108.932.1 1.337.276 1.596.465.255.185.479.409.664.664.189.26.364.664.465 1.596.105.969.108 2.248.108 4.167 0 1.92-.003 3.198-.108 4.167-.1.932-.276 1.337-.465 1.596-.185.255-.409.479-.664.664-.259.189-.664.364-1.596.465-.969.105-2.248.108-4.167.108H9c-1.92 0-3.198-.003-4.167-.108-.932-.1-1.337-.276-1.596-.465a3.003 3.003 0 0 1-.664-.664c-.189-.259-.364-.664-.465-1.596C2.003 15.198 2 13.92 2 12c0-1.92.003-3.198.108-4.167.1-.932.276-1.337.465-1.596a3 3 0 0 1 .664-.664c.259-.189.664-.364 1.596-.465C5.802 5.003 7.08 5 9 5Z"
-      clipRule="evenodd"
-      initial={{ pathLength: 0 }}
-      animate={{ pathLength: 5 }}
-      transition={{
-        duration: 2, // Duración de la animación en segundos
-        ease: "easeInOut",
-      }}
-    />
-  </motion.svg>
-);
+    >
+      <motion.svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={30}
+        height={30}
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <motion.path
+          fill="#ffff"
+          fillRule="evenodd"
+          d="M9.496 7.132A1 1 0 0 0 8 8v8a1 1 0 0 0 1.496.868l7-4a1 1 0 0 0 0-1.736l-7-4ZM13.984 12 10 14.277V9.723L13.984 12Z"
+          clipRule="evenodd"
+          animate={{
+            fill: move ? secondColor : "#ffff",
+          }}
+        />
+        <motion.path
+          fill="#ffff"
+          fillRule="evenodd"
+          d="M0 12c0-3.75 0-5.625.955-6.939A5 5 0 0 1 2.06 3.955C3.375 3 5.251 3 9 3h6c3.75 0 5.625 0 6.939.955a5 5 0 0 1 1.106 1.106C24 6.375 24 8.251 24 12c0 3.75 0 5.625-.955 6.939a5 5 0 0 1-1.106 1.106C20.625 21 18.749 21 15 21H9c-3.75 0-5.625 0-6.939-.955A5 5 0 0 1 .955 18.94C0 17.625 0 15.749 0 12Zm9-7h6c1.92 0 3.198.003 4.167.108.932.1 1.337.276 1.596.465.255.185.479.409.664.664.189.26.364.664.465 1.596.105.969.108 2.248.108 4.167 0 1.92-.003 3.198-.108 4.167-.1.932-.276 1.337-.465 1.596-.185.255-.409.479-.664.664-.259.189-.664.364-1.596.465-.969.105-2.248.108-4.167.108H9c-1.92 0-3.198-.003-4.167-.108-.932-.1-1.337-.276-1.596-.465a3.003 3.003 0 0 1-.664-.664c-.189-.259-.364-.664-.465-1.596C2.003 15.198 2 13.92 2 12c0-1.92.003-3.198.108-4.167.1-.932.276-1.337.465-1.596a3 3 0 0 1 .664-.664c.259-.189.664-.364 1.596-.465C5.802 5.003 7.08 5 9 5Z"
+          clipRule="evenodd"
+          animate={{
+            fill: move ? secondColor : "#ffff",
+          }}
+        />
+      </motion.svg>
+    </motion.div>
+  );
+};
+
 export default Youtube;
