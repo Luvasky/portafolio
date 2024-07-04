@@ -1,4 +1,3 @@
-import { Scale } from "@mui/icons-material";
 import "../../styles/Home/Home.css";
 import * as utils from "../../utils/Home/utils.js";
 const Home = () => {
@@ -76,7 +75,7 @@ const Home = () => {
               height: "30%",
             }}
           >
-            Publicidad
+            <utils.Advertising></utils.Advertising>
           </utils.Box>
         </utils.Box>
       </utils.Box>
